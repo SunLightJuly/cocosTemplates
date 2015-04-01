@@ -1,0 +1,70 @@
+{
+    "do_default": {
+        "exclude_from_template": [
+            "frameworks/runtime-src",
+            "res-landscape",
+            "res-portrait"
+        ],
+        "append_from_template": {
+            "from": "res-landscape",
+            "to": ""
+        },
+        "project_rename": {
+            "src_project_name": "HelloLua",
+            "files": [
+               "PROJECT_NAME.ccs",
+               "PROJECT_NAME.cfg",
+               "PROJECT_NAME.udf"
+            ]
+        },
+        "project_replace_project_name": {
+            "src_project_name": "HelloLua",
+            "files": [
+                "config.json",
+                ".project",
+                "PROJECT_NAME.ccs"
+            ]
+        },
+        "append_dir": [
+        ]
+    },
+    "do_add_native_support": {
+    },
+    "change_orientation": {
+         "append_from_template": {
+            "from": "res-portrait",
+            "to": ""
+         },
+         "modify_files": [
+            {
+               "file_path": "config.json",
+               "pattern": "\\\"isLandscape\\\"\\s*:.*,",
+               "replace_string": "\"isLandscape\": false,"
+            },
+            {
+               "file_path": "src/config.lua",
+               "pattern": "width\\s*=.*,",
+               "replace_string": "width = 640,"
+            },
+            {
+               "file_path": "src/config.lua",
+               "pattern": "height\\s*=.*,",
+               "replace_string": "height = 960,"
+            }
+         ],
+         "project_rename":{
+            "src_project_name":"HelloLua",
+            "files":[
+               "PROJECT_NAME.ccs",
+               "PROJECT_NAME.cfg",
+               "PROJECT_NAME.udf"
+            ]
+         },
+         "project_replace_project_name":{
+            "src_project_name":"HelloLua",
+            "files":[
+               "PROJECT_NAME.ccs"
+            ]
+         }
+      }
+}
